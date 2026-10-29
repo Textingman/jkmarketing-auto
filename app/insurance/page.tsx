@@ -31,7 +31,7 @@ export default function InsurancePage() {
                 Insurance is designed to be confusing. We cut through it — a real consultant reviews your situation, explains your options in plain English, and helps you find the right coverage at the right price.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact"
+                <Link href="/consultation"
                   className="px-8 py-4 text-base font-semibold text-white rounded-2xl shadow-xl hover:opacity-90 transition-all text-center"
                   style={{ background: 'linear-gradient(135deg, #0891b2, #2563eb)' }}>
                   Talk to a Consultant — Free
@@ -169,7 +169,7 @@ export default function InsurancePage() {
           <p className="text-lg text-gray-500 mb-8">
             Book a free consultation and talk to a real person who will review your coverage and help you find the right policy.
           </p>
-          <Link href="/contact"
+          <Link href="/consultation"
             className="inline-flex items-center gap-2 px-10 py-5 text-base font-semibold text-white rounded-2xl shadow-xl hover:opacity-90 transition-all"
             style={{ background: 'linear-gradient(135deg, #0891b2, #2563eb)' }}>
             Talk to a Consultant — It&apos;s Free

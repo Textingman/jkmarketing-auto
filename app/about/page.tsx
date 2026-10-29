@@ -142,7 +142,7 @@ export default function AboutPage() {
             Get a free consultation and discover how we can help you make smarter auto decisions.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact"
+            <Link href="/consultation"
               className="px-8 py-4 text-sm font-semibold text-white rounded-2xl shadow-lg hover:opacity-90 transition-all"
               style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
               Get a Free Consultation

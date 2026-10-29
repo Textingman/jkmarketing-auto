@@ -143,7 +143,7 @@ export default function SignupPage() {
                   <p className="text-red-500 text-sm mt-2 font-medium">{companyIdError}</p>
                 )}
                 <p className="text-xs text-gray-400 mt-2">
-                  Don&apos;t have a Company ID? <Link href="/contact" className="text-blue-600 hover:underline">Contact your HR team</Link>.
+                  Don&apos;t have a Company ID? <Link href="/consultation" className="text-blue-600 hover:underline">Contact your HR team</Link>.
                 </p>
               </div>
 

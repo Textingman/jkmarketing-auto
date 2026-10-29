@@ -17,7 +17,6 @@ export default function Nav() {
     { href: '/services', label: 'Services' },
     { href: '/pricing', label: 'Pricing' },
     { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
   ];
 
   return (
@@ -42,7 +41,7 @@ export default function Nav() {
 
         {/* CTA */}
         <div className="flex items-center gap-3">
-          <Link href="/contact"
+          <Link href="/consultation"
             className="hidden md:block px-5 py-2.5 text-sm font-medium text-white rounded-xl transition-all hover:opacity-90 hover:-translate-y-0.5 shadow-lg"
             style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
             Get a Consultation
@@ -65,7 +64,7 @@ export default function Nav() {
               {item.label}
             </Link>
           ))}
-          <Link href="/contact"
+          <Link href="/consultation"
             className="block w-full mt-3 px-5 py-3 text-sm font-medium text-white rounded-xl text-center"
             style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
             Get a Consultation

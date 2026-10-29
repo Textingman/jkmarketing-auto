@@ -24,7 +24,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-400">Company</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Get a Consultation</Link></li>
+              <li><Link href="/consultation" className="hover:text-white transition-colors">Get a Consultation</Link></li>
               <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               <li><Link href="/sms-policy" className="hover:text-white transition-colors">SMS Policy</Link></li>
@@ -58,7 +58,7 @@ export default function Footer() {
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
             <Link href="/sms-policy" className="hover:text-white transition-colors">SMS Policy</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            <Link href="/consultation" className="hover:text-white transition-colors">Contact</Link>
           </div>
         </div>
       </div>

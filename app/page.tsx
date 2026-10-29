@@ -53,7 +53,7 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <Link href="/contact"
+              <Link href="/consultation"
                 className="px-8 py-4 text-base font-semibold text-white rounded-2xl shadow-xl hover:opacity-90 hover:-translate-y-0.5 transition-all"
                 style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
                 Get a Free Consultation
@@ -412,7 +412,7 @@ export default function HomePage() {
                 Whether you&apos;re buying a car, shopping for insurance, or planning your next service — our experts are here to help you every step of the way.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/contact"
+                <Link href="/consultation"
                   className="px-10 py-4 text-base font-semibold text-white rounded-2xl shadow-xl hover:opacity-90 hover:-translate-y-0.5 transition-all"
                   style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
                   Get a Free Consultation

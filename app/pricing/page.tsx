@@ -73,7 +73,7 @@ export default function PricingPage() {
                   </div>
                 ))}
               </div>
-              <Link href="/contact"
+              <Link href="/consultation"
                 className="block w-full py-4 text-center text-sm font-semibold text-white rounded-xl hover:opacity-90 transition-all"
                 style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
                 Get Started
@@ -123,7 +123,7 @@ export default function PricingPage() {
                   </div>
                 ))}
               </div>
-              <Link href="/contact"
+              <Link href="/consultation"
                 className="block w-full py-4 text-center text-sm font-semibold text-white rounded-xl hover:opacity-90 transition-all"
                 style={{ background: 'linear-gradient(135deg, #0891b2, #2563eb)' }}>
                 Get Started
@@ -167,7 +167,7 @@ export default function PricingPage() {
                   </div>
                 ))}
               </div>
-              <Link href="/contact"
+              <Link href="/consultation"
                 className="block w-full py-4 text-center text-sm font-semibold text-white rounded-xl hover:opacity-90 transition-all"
                 style={{ background: 'linear-gradient(135deg, #7c3aed, #2563eb)' }}>
                 Subscribe Now
@@ -231,7 +231,7 @@ export default function PricingPage() {
           <p className="text-lg text-gray-500 mb-8">
             Book a free consultation and we&apos;ll help you figure out which service is right for you.
           </p>
-          <Link href="/contact"
+          <Link href="/consultation"
             className="inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white rounded-2xl shadow-lg hover:opacity-90 transition-all"
             style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
             Book a Free Consultation

@@ -156,7 +156,7 @@ export default function ServicesPage() {
           <p className="text-lg text-gray-500 mb-8">
             Book a free consultation and we&apos;ll help you figure out exactly what you need.
           </p>
-          <Link href="/contact"
+          <Link href="/consultation"
             className="inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white rounded-2xl shadow-lg hover:opacity-90 transition-all"
             style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
             Get a Free Consultation

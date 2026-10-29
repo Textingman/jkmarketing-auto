@@ -31,7 +31,7 @@ export default function CarSelectionPage() {
                 No algorithms. No automated tools. You speak directly with a real automotive consultant who listens to your needs, researches your options, and negotiates with dealers on your behalf.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact"
+                <Link href="/consultation"
                   className="px-8 py-4 text-base font-semibold text-white rounded-2xl shadow-xl hover:opacity-90 transition-all text-center"
                   style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
                   Talk to a Consultant — Free
@@ -169,7 +169,7 @@ export default function CarSelectionPage() {
           <p className="text-lg text-gray-500 mb-8">
             Book a free consultation and talk to a real person who will help you every step of the way.
           </p>
-          <Link href="/contact"
+          <Link href="/consultation"
             className="inline-flex items-center gap-2 px-10 py-5 text-base font-semibold text-white rounded-2xl shadow-xl hover:opacity-90 transition-all"
             style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
             Talk to a Consultant — It&apos;s Free

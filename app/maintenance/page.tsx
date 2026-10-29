@@ -31,7 +31,7 @@ export default function MaintenancePage() {
                 Forget generic maintenance apps. We learn your specific vehicle, your driving habits, and your service history — then send you personalized reminders from a real team that actually knows your car.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact"
+                <Link href="/consultation"
                   className="px-8 py-4 text-base font-semibold text-white rounded-2xl shadow-xl hover:opacity-90 transition-all text-center"
                   style={{ background: 'linear-gradient(135deg, #7c3aed, #2563eb)' }}>
                   Get Started — Free Consultation
@@ -200,7 +200,7 @@ export default function MaintenancePage() {
           <p className="text-lg text-gray-500 mb-8">
             Start with a free consultation and we&apos;ll set up a personalized maintenance plan for your vehicle.
           </p>
-          <Link href="/contact"
+          <Link href="/consultation"
             className="inline-flex items-center gap-2 px-10 py-5 text-base font-semibold text-white rounded-2xl shadow-xl hover:opacity-90 transition-all"
             style={{ background: 'linear-gradient(135deg, #7c3aed, #2563eb)' }}>
             Get Started — Free Consultation
