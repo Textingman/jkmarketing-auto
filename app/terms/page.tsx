@@ -68,7 +68,7 @@ export default function TermsPage() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">5. SMS Communications — Alert Related Text Messages</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              By providing your phone number and checking the SMS opt-in box during registration or consultation scheduling, you expressly consent to receive <strong>alert related text messages</strong> from JKAuto. These messages are limited to account-related notifications, including:
+              By providing your phone number and checking the SMS opt-in box during registration or consultation scheduling, you expressly consent to receive <strong>promotional marketing</strong> (special offers, service updates, and promotions), <strong>customer care</strong> (consultation follow-ups, support, and service-related communications), and <strong>transactional account notifications</strong> (booking confirmations, appointment reminders, and account alerts) related text messages from JKAuto. These messages are limited to account-related notifications, including:
             </p>
             <ul className="list-disc pl-6 text-gray-600 space-y-2">
               <li>Consultation appointment confirmations and reminders</li>
@@ -87,9 +87,6 @@ export default function TermsPage() {
                 <li>• <strong>No mobile information will be shared with or sold to third parties for marketing or promotional purposes.</strong></li>
               </ul>
             </div>
-            <p className="text-gray-600 leading-relaxed mt-4">
-              These SMS messages are strictly alert-related in nature. We do not send marketing, promotional, or advertising text messages.
-            </p>
           </div>
 
           <div>
