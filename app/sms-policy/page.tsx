@@ -37,20 +37,21 @@ export default function SmsPolicyPage() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">What We Send</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              JKAuto <strong>only sends alert related text messages</strong> via SMS. We do not send marketing, promotional, or advertising messages of any kind. Alert related messages may include:
+              JKAuto sends <strong>promotional marketing</strong> (special offers, service updates, and promotions), <strong>customer care</strong> (consultation follow-ups, support, and service-related communications), and <strong>transactional account notifications</strong> (booking confirmations, appointment reminders, and account alerts) related text messages. These messages may include:
             </p>
             <ul className="list-disc pl-6 text-gray-600 space-y-2">
               <li>Consultation appointment confirmations and reminders</li>
               <li>Account access and onboarding confirmations</li>
               <li>Follow-up information related to your consultancy requests</li>
               <li>Account security and access notifications</li>
+              <li>Special offers, promotions, and service updates</li>
             </ul>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Opt-In</h2>
             <p className="text-gray-600 leading-relaxed">
-              SMS notifications are optional. You may opt in to receive alert related text messages during the consultation booking or account registration process by checking the SMS opt-in box. Opting in is not required to use the JKAuto platform or receive our consultancy services.
+              SMS notifications are optional. You may opt in to receive these text messages during the consultation booking or account registration process by checking the SMS opt-in box. Opting in is not required to use the JKAuto platform or receive our consultancy services.
             </p>
           </div>
 
@@ -84,7 +85,7 @@ export default function SmsPolicyPage() {
             <div className="p-4 rounded-xl" style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.2)' }}>
               <p className="text-sm font-bold text-red-800 mb-1">No Mobile Data Sharing</p>
               <p className="text-sm text-red-700">
-                <strong>No mobile information will be shared with or sold to third parties for marketing or promotional purposes.</strong> Your phone number and SMS opt-in status are used solely to deliver alert related text messages as described in this policy and our{' '}
+                <strong>No mobile information will be shared with or sold to third parties for marketing or promotional purposes.</strong> Your phone number and SMS opt-in status are used solely to deliver the text messages described in this policy and our{' '}
                 <Link href="/privacy" className="underline">Privacy Policy</Link>.
               </p>
             </div>

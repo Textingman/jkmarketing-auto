@@ -75,7 +75,7 @@ export default function PrivacyPage() {
               <div className="p-4 rounded-xl" style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.2)' }}>
                 <p className="text-sm font-bold text-red-800 mb-1">No Mobile Data Sharing Policy</p>
                 <p className="text-sm text-red-700">
-                  <strong>No mobile information will be shared with or sold to third parties for marketing or promotional purposes.</strong> All categories of mobile information are excluded from sharing with third-party marketers. We are committed to protecting your mobile information and will only use it for the purposes outlined in this Privacy Policy, such as providing our consultancy services and communicating with you about your account via alert related text messages.
+                  <strong>No mobile information will be shared with or sold to third parties for marketing or promotional purposes.</strong> All categories of mobile information are excluded from sharing with third-party marketers. We are committed to protecting your mobile information and will only use it for the purposes outlined in this Privacy Policy, such as providing our consultancy services and communicating with you about your account via text message.
                 </p>
               </div>
 
@@ -104,16 +104,17 @@ export default function PrivacyPage() {
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">4. SMS Communications</h2>
               <p className="text-gray-600 mb-4">
-                JKAuto may send SMS (text message) communications to users who have opted in. Our SMS program is limited exclusively to <strong>alert related text messages</strong>, which may include:
+                JKAuto may send SMS (text message) communications to users who have opted in. Our SMS program includes <strong>promotional marketing</strong> (special offers, service updates, and promotions), <strong>customer care</strong> (consultation follow-ups, support, and service-related communications), and <strong>transactional account notifications</strong> (booking confirmations, appointment reminders, and account alerts), which may include:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
                 <li>Consultation appointment confirmations and reminders</li>
                 <li>Account access and onboarding confirmations</li>
                 <li>Follow-up information related to your consultancy requests</li>
                 <li>Account security and access notifications</li>
+                <li>Special offers, promotions, and service updates</li>
               </ul>
               <p className="text-gray-600 mt-4">
-                <strong>We do not send marketing or promotional SMS messages.</strong> No mobile information will be shared with or sold to third parties for marketing or promotional purposes.
+                <strong>No mobile information will be shared with or sold to third parties for marketing or promotional purposes.</strong>
               </p>
               <p className="text-gray-600 mt-4">
                 Message and data rates may apply. Message frequency varies based on account activity. To opt out of SMS notifications at any time, reply <strong>STOP</strong> to any message. For help, reply <strong>HELP</strong> or contact us at <a href="mailto:support@jkauto.com" className="text-blue-600 hover:underline">support@jkauto.com</a>.
