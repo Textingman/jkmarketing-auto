@@ -64,15 +64,25 @@ function VerifyPageContent() {
 
 
   return (
-    <div className="min-h-screen bg-[#F9F9F9] flex items-center justify-center px-4 py-8">
-      <div className="max-w-xl w-full bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 relative before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-[#EFE810] before:rounded-t-2xl">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-8 relative overflow-hidden">
+      {/* ── BACKGROUND GRADIENT BLOBS (matches homepage) ── */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+        <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] blob opacity-30"
+          style={{ background: 'radial-gradient(circle, rgba(147,197,253,0.4) 0%, rgba(59,130,246,0.15) 50%, transparent 70%)' }} />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] blob opacity-25"
+          style={{ background: 'radial-gradient(circle, rgba(251,191,36,0.3) 0%, rgba(245,158,11,0.1) 50%, transparent 70%)' }} />
+      </div>
+
+      <div className="max-w-xl w-full bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 relative" style={{ zIndex: 1 }}>
+        <div className="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl" style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }} />
         {/* Verification Content */}
         <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-[#EFE810] rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-12 h-12 text-[#1A1A1A]" />
+          <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+            style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
+            <CheckCircle className="w-12 h-12 text-white" />
           </div>
           
-          <h2 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] mb-6 px-2">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 px-2">
             Validate your number.
           </h2>
           
@@ -83,7 +93,7 @@ function VerifyPageContent() {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="Enter phone number"
-              className="w-full bg-gray-50 rounded-lg p-3 sm:p-4 text-lg sm:text-xl font-bold text-[#1A1A1A] tracking-wider text-center border-2 border-[#E5E7EB] focus:border-[#EFE810] focus:outline-none transition-colors"
+              className="w-full bg-gray-50 rounded-lg p-3 sm:p-4 text-lg sm:text-xl font-bold text-gray-900 tracking-wider text-center border-2 border-gray-200 focus:border-blue-600 focus:outline-none transition-colors"
             />
           </div>
 
@@ -91,11 +101,12 @@ function VerifyPageContent() {
           <button
             onClick={handleConfirm}
             disabled={isRedirecting}
-            className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-lg text-base sm:text-lg font-semibold transition-all duration-300 ${
+            className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-2xl text-base sm:text-lg font-semibold transition-all duration-300 text-white ${
               isRedirecting
-                ? 'bg-gray-400 cursor-not-allowed text-white'
-                : 'bg-[#EFE810] hover:bg-[#d4cd00] text-[#1A1A1A] shadow-lg hover:shadow-xl !cursor-pointer'
+                ? 'bg-gray-400 cursor-not-allowed'
+                : 'shadow-xl hover:opacity-90 hover:-translate-y-0.5 !cursor-pointer'
             }`}
+            style={isRedirecting ? undefined : { background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}
           >
             {isRedirecting ? (
               <span className="flex items-center justify-center">
@@ -112,8 +123,8 @@ function VerifyPageContent() {
         </div>
 
         {/* Footer */}
-        <div className="text-center pt-6 border-t border-[#E5E7EB]">
-          <p className="text-xs text-[#555555]">
+        <div className="text-center pt-6 border-t border-gray-200 relative">
+          <p className="text-xs text-gray-400">
             Secured by JkAuto
           </p>
         </div>
@@ -125,10 +136,10 @@ function VerifyPageContent() {
 export default function VerifyPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-[#F9F9F9] flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#EFE810] mx-auto"></div>
-          <p className="mt-4 text-[#555555]">Loading...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-400">Loading...</p>
         </div>
       </div>
     }>
