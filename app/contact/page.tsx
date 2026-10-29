@@ -1,353 +1,281 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
+
+const SERVICES = [
+  {
+    id: 'car-selection',
+    icon: '🚗',
+    label: 'Car Finder & Negotiation',
+    price: '$1,200 one-time',
+    color: '#1e40af',
+  },
+  {
+    id: 'insurance',
+    icon: '🛡️',
+    label: 'Insurance Finder',
+    price: '$300 one-time',
+    color: '#0891b2',
+  },
+  {
+    id: 'maintenance',
+    icon: '🔧',
+    label: 'Maintenance Reminders',
+    price: '$30/month',
+    color: '#7c3aed',
+  },
+];
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [smsOptIn, setSmsOptIn] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1500);
+  const toggleService = (id: string) => {
+    setSelectedServices(prev =>
+      prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]
+    );
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (selectedServices.length === 0 || !agreedToTerms) return;
+    setSubmitting(true);
+    setTimeout(() => { setSubmitting(false); setSubmitted(true); }, 1500);
   };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b border-[#E5E7EB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <Link href="/" className="flex-shrink-0">
-                <Image src="/logo-nav.png" alt="Lifecycle Loop" width={180} height={48} className="h-12 w-auto object-contain" />
-              </Link>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-[#555555] hover:text-[#1A1A1A] px-3 py-2 rounded-md text-sm font-medium">
-                  Home
-                </Link>
-                <Link href="/about" className="text-[#555555] hover:text-[#1A1A1A] px-3 py-2 rounded-md text-sm font-medium">
-                  About
-                </Link>
-                <Link href="/privacy" className="text-[#555555] hover:text-[#1A1A1A] px-3 py-2 rounded-md text-sm font-medium">
-                  Privacy
-                </Link>
-                <Link href="/terms" className="text-[#555555] hover:text-[#1A1A1A] px-3 py-2 rounded-md text-sm font-medium">
-                  Terms
-                </Link>
-                <Link href="/contact" className="text-[#1A1A1A] hover:text-[#1A1A1A] px-3 py-2 rounded-md text-sm font-medium">
-                  Contact
-                </Link>
-                <Link href="/signup" className="bg-[#EFE810] text-[#1A1A1A] hover:bg-[#d4cd00] px-4 py-2 rounded-md text-sm font-semibold">
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] blob opacity-25"
+          style={{ background: 'radial-gradient(circle, rgba(147,197,253,0.4) 0%, transparent 70%)' }} />
+        <div className="absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] blob opacity-20"
+          style={{ background: 'radial-gradient(circle, rgba(251,191,36,0.3) 0%, transparent 70%)' }} />
+      </div>
 
-      {/* Hero Section */}
-      <section className="bg-[#F9F9F9] py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-extrabold text-[#1A1A1A] mb-4">Contact Us</h1>
-          <p className="text-xl text-[#555555] max-w-2xl mx-auto">
-            Have a question or ready to get started? We&apos;d love to hear from you. Reach out and our team will get back to you within 24 hours.
+      <Nav />
+
+      {/* Hero */}
+      <section className="pt-32 pb-12 px-6 text-center relative" style={{ zIndex: 1 }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-blue-700 mb-6"
+            style={{ background: 'rgba(147,197,253,0.2)', border: '1px solid rgba(147,197,253,0.4)' }}>
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            Free Consultation — No Commitment
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 tracking-tight mb-6">
+            Book Your Free
+            <br /><span className="gradient-text-blue">Consultation</span>
+          </h1>
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+            Select the services you need, fill in your details, and we&apos;ll reach out within 1 business day. Completely free — no pressure, no commitment.
           </p>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid md:grid-cols-2 gap-16">
-
-          {/* Contact Info */}
-          <div>
-            <h2 className="text-3xl font-bold text-[#1A1A1A] mb-8">Get in Touch</h2>
-
-            <div className="space-y-8">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-12 h-12 bg-[#EFE810] rounded-full flex items-center justify-center mr-5">
-                  <Phone className="w-6 h-6 text-[#1A1A1A]" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#1A1A1A] mb-1">Phone</h3>
-                  <a href="tel:+13022080355" className="text-[#555555] hover:text-[#1A1A1A] text-lg">
-                    (302) 208-0355
-                  </a>
-                </div>
+      {/* Form */}
+      <section className="py-8 px-6 pb-20 relative" style={{ zIndex: 1 }}>
+        <div className="max-w-3xl mx-auto">
+          {submitted ? (
+            <div className="glass-card p-12 text-center">
+              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
+                style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
               </div>
-
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-12 h-12 bg-[#EFE810] rounded-full flex items-center justify-center mr-5">
-                  <Mail className="w-6 h-6 text-[#1A1A1A]" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#1A1A1A] mb-1">Email</h3>
-                  <a href="mailto:support@trylifecycleloop.com" className="text-[#555555] hover:text-[#1A1A1A] text-lg">
-                    support@trylifecycleloop.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-12 h-12 bg-[#EFE810] rounded-full flex items-center justify-center mr-5">
-                  <MapPin className="w-6 h-6 text-[#1A1A1A]" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#1A1A1A] mb-1">Address</h3>
-                  <p className="text-[#555555] text-lg leading-relaxed">
-                    3 Germay Dr, Unit 4 #3226<br />
-                    Wilmington, DE 19804<br />
-                    United States
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-12 h-12 bg-[#EFE810] rounded-full flex items-center justify-center mr-5">
-                  <Clock className="w-6 h-6 text-[#1A1A1A]" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#1A1A1A] mb-1">Business Hours</h3>
-                  <p className="text-[#555555] text-lg">
-                    Monday – Friday: 9am – 6pm EST<br />
-                    Saturday – Sunday: Closed
-                  </p>
-                </div>
-              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Consultation Booked!</h2>
+              <p className="text-lg text-gray-500 mb-4 max-w-md mx-auto">
+                Thanks, <strong>{formData.name}</strong>! We&apos;ve received your request.
+              </p>
+              <p className="text-gray-500 mb-8">
+                A consultant will reach out to <strong>{formData.email}</strong> within 1 business day.
+              </p>
+              <button onClick={() => { setSubmitted(false); setSelectedServices([]); setFormData({ name: '', email: '', phone: '', message: '' }); setSmsOptIn(false); setAgreedToTerms(false); }}
+                className="px-6 py-3 text-sm font-semibold text-white rounded-xl"
+                style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
+                Book Another Consultation
+              </button>
             </div>
-          </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="glass-card p-8 space-y-8">
 
-          {/* Contact Form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#E5E7EB]">
-            {submitStatus === 'success' ? (
-              <div className="text-center py-12">
-                <div className="w-20 h-20 bg-[#EFE810] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-10 h-10 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+              {/* Services */}
+              <div>
+                <h2 className="text-lg font-bold text-gray-900 mb-1">What do you need help with? *</h2>
+                <p className="text-sm text-gray-500 mb-4">Select one or more services.</p>
+                <div className="grid md:grid-cols-3 gap-3">
+                  {SERVICES.map(service => {
+                    const isSelected = selectedServices.includes(service.id);
+                    return (
+                      <button
+                        key={service.id}
+                        type="button"
+                        onClick={() => toggleService(service.id)}
+                        className={`p-4 rounded-2xl text-left transition-all border-2 ${
+                          isSelected ? 'border-blue-500 shadow-md' : 'border-transparent hover:border-gray-200'
+                        }`}
+                        style={{ background: isSelected ? `${service.color}0d` : 'rgba(0,0,0,0.03)' }}
+                      >
+                        <div className="flex items-start justify-between mb-2">
+                          <span className="text-2xl">{service.icon}</span>
+                          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
+                            isSelected ? 'border-blue-500 bg-blue-500' : 'border-gray-300'
+                          }`}>
+                            {isSelected && (
+                              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
+                                <path d="M20 6L9 17l-5-5" />
+                              </svg>
+                            )}
+                          </div>
+                        </div>
+                        <p className="font-bold text-gray-900 text-sm mb-0.5">{service.label}</p>
+                        <p className="text-xs font-semibold" style={{ color: service.color }}>{service.price}</p>
+                      </button>
+                    );
+                  })}
                 </div>
-                <h2 className="text-2xl font-bold text-[#1A1A1A] mb-3">Message Sent!</h2>
-                <p className="text-[#555555] mb-6">
-                  Thanks for reaching out. We&apos;ll get back to you within 24 hours.
-                </p>
-                <button
-                  onClick={() => setSubmitStatus('idle')}
-                  className="px-6 py-3 bg-[#EFE810] text-[#1A1A1A] font-semibold rounded-lg hover:bg-[#d4cd00] transition-colors"
-                >
-                  Send Another Message
-                </button>
+                {selectedServices.length === 0 && (
+                  <p className="text-xs text-amber-600 mt-2">Please select at least one service.</p>
+                )}
               </div>
-            ) : (
-              <>
-                <h2 className="text-2xl font-bold text-[#1A1A1A] mb-6">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  {/* Name */}
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-[#1A1A1A] mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#EFE810] focus:border-transparent"
-                      placeholder="John Doe"
-                    />
-                  </div>
 
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-[#1A1A1A] mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#EFE810] focus:border-transparent"
-                      placeholder="john@company.com"
-                    />
-                  </div>
+              <div className="border-t border-gray-100" />
 
-                  {/* Subject */}
+              {/* Personal Info */}
+              <div className="space-y-4">
+                <h2 className="text-lg font-bold text-gray-900">Your Details</h2>
+                <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-[#1A1A1A] mb-2">
-                      Subject *
-                    </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#EFE810] focus:border-transparent bg-white"
-                    >
-                      <option value="">Select a subject...</option>
-                      <option value="general">General Inquiry</option>
-                      <option value="sales">Sales & Pricing</option>
-                      <option value="support">Technical Support</option>
-                      <option value="billing">Billing</option>
-                      <option value="partnership">Partnership</option>
-                      <option value="other">Other</option>
-                    </select>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Full Name *</label>
+                    <input type="text" name="name" required value={formData.name} onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                      placeholder="Jane Smith" />
                   </div>
-
-                  {/* Message */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-[#1A1A1A] mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#EFE810] focus:border-transparent"
-                      placeholder="How can we help you?"
-                    />
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Email Address *</label>
+                    <input type="email" name="email" required value={formData.email} onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                      placeholder="jane@email.com" />
                   </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">Phone Number <span className="text-gray-400">(optional)</span></label>
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                    placeholder="(555) 000-0000" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">Tell us about your situation <span className="text-gray-400">(optional)</span></label>
+                  <textarea name="message" rows={3} value={formData.message} onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm resize-none"
+                    placeholder="e.g. Looking for a family SUV under $40k, or I think I'm overpaying for insurance..." />
+                </div>
+              </div>
 
-                  {/* Submit */}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-full py-4 px-6 rounded-lg text-lg font-semibold transition-all ${
-                      isSubmitting
-                        ? 'bg-gray-400 cursor-not-allowed text-white'
-                        : 'bg-[#EFE810] hover:bg-[#d4cd00] text-[#1A1A1A] shadow-lg hover:shadow-xl'
-                    }`}
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center">
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              <div className="border-t border-gray-100" />
+
+              {/* Consents */}
+              <div className="space-y-4">
+                {/* SMS Opt-In */}
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                      smsOptIn ? 'bg-blue-600 border-blue-600' : 'border-gray-300 group-hover:border-blue-400'
+                    }`} onClick={() => setSmsOptIn(!smsOptIn)}>
+                      {smsOptIn && (
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
+                          <path d="M20 6L9 17l-5-5" />
                         </svg>
-                        Sending...
-                      </span>
-                    ) : (
-                      'Send Message'
-                    )}
-                  </button>
-                </form>
-              </>
-            )}
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">
+                      I consent to receive SMS text messages from JKAuto <span className="text-gray-400 font-normal">(optional)</span>
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                      By checking this box, you agree to receive <strong>alert related text messages</strong> from JKAuto, including consultation follow-ups, appointment reminders, and account notifications. Message and data rates may apply. Message frequency varies. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for help. <strong>No mobile information will be shared with or sold to third parties for marketing or promotional purposes.</strong>
+                    </p>
+                  </div>
+                </label>
+
+                {/* Terms & Privacy */}
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                      agreedToTerms ? 'bg-blue-600 border-blue-600' : 'border-gray-300 group-hover:border-blue-400'
+                    }`} onClick={() => setAgreedToTerms(!agreedToTerms)}>
+                      {agreedToTerms && (
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">
+                      I agree to the{' '}
+                      <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Terms of Service</a>
+                      {' '}and{' '}
+                      <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Privacy Policy</a>
+                      {' '}<span className="text-red-500">*</span>
+                    </p>
+                    <p className="text-xs text-gray-500 mt-0.5">Required to proceed.</p>
+                  </div>
+                </label>
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                disabled={submitting || selectedServices.length === 0 || !agreedToTerms}
+                className="w-full py-4 text-base font-semibold text-white rounded-2xl shadow-xl transition-all hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+                style={{ background: 'linear-gradient(135deg, #1e40af, #2563eb)' }}>
+                {submitting ? 'Booking Your Consultation...' : 'Book My Free Consultation →'}
+              </button>
+              <p className="text-center text-sm text-gray-400">
+                Free consultation. No commitment. We&apos;ll reach out within 1 business day.
+              </p>
+
+            </form>
+          )}
+        </div>
+      </section>
+
+      {/* Contact info strip */}
+      <section className="py-12 px-6 border-t border-gray-100 relative" style={{ zIndex: 1 }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 text-center">
+            {[
+              { icon: '📧', label: 'Email Us', value: 'support@jkauto.com', href: 'mailto:support@jkauto.com' },
+              { icon: '📞', label: 'Call Us', value: '(505) 478-0022', href: 'tel:+15054780022' },
+              { icon: '🕐', label: 'Business Hours', value: 'Mon–Fri, 9am–6pm MST', href: null },
+            ].map(item => (
+              <div key={item.label} className="p-5 rounded-2xl" style={{ background: 'rgba(0,0,0,0.02)' }}>
+                <div className="text-2xl mb-2">{item.icon}</div>
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">{item.label}</p>
+                {item.href ? (
+                  <a href={item.href} className="text-sm text-blue-600 hover:text-blue-700 font-medium">{item.value}</a>
+                ) : (
+                  <p className="text-sm text-gray-600 font-medium">{item.value}</p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#1A1A1A] text-white py-12 mt-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <span className="text-2xl font-extrabold text-white tracking-tight">Lifecycle Loop</span>
-              <p className="text-gray-400 mt-3">
-                Lifecycle Loop — loyalty tracking software that drives real engagement.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/signup" className="text-gray-400 hover:text-white">
-                    Get Started
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/privacy" className="text-gray-400 hover:text-white">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-gray-400 hover:text-white">
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/sms-policy" className="text-gray-400 hover:text-white">
-                    SMS Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-gray-400">
-                support@trylifecycleloop.com
-              </p>
-              <p className="text-gray-400 mt-1">
-                (302) 208-0355
-              </p>
-              <p className="text-gray-400 mt-2 text-sm">
-                3 Germay Dr, Unit 4 #3226<br />
-                Wilmington, DE 19804<br />
-                United States
-              </p>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-400">
-            <p>&copy; 2026 Lifecycle Loop. All rights reserved.</p>
-            <div className="flex items-center gap-4">
-              {/* LinkedIn */}
-              <a href="https://www.linkedin.com/company/lifecycleloop/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-              {/* Google */}
-              <a href="https://share.google/Nl9xEk7kfvDH5ZuOs" target="_blank" rel="noopener noreferrer" aria-label="Google" className="text-gray-400 hover:text-white transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
