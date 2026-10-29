@@ -204,7 +204,7 @@ export default function ContactPage() {
                       I consent to receive SMS text messages from JKAuto <span className="text-gray-400 font-normal">(optional)</span>
                     </p>
                     <p className="text-xs text-gray-500 mt-1 leading-relaxed">
-                      By checking this box, you agree to receive <strong>alert related text messages</strong> from JKAuto, including consultation follow-ups, appointment reminders, and account notifications. Message and data rates may apply. Message frequency varies. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for help. <strong>No mobile information will be shared with or sold to third parties for marketing or promotional purposes.</strong>
+                      By checking this box, you expressly consent to receive text messages from JKAuto for the following purposes: <strong>promotional marketing</strong> (special offers, service updates, and promotions), <strong>customer care</strong> (consultation follow-ups, support, and service-related communications), and <strong>transactional account notifications</strong> (booking confirmations, appointment reminders, and account alerts). Message and data rates may apply. Message frequency varies. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for help. <strong>No mobile information will be shared with or sold to third parties for marketing or promotional purposes.</strong>
                     </p>
                   </div>
                 </label>
