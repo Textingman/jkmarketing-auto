@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export default function Nav() {
@@ -24,9 +25,7 @@ export default function Nav() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-gray-900" style={{ letterSpacing: '-0.02em' }}>
-            JKAuto
-          </span>
+          <Image src="/jkauto-logo.png" alt="JKAuto" width={160} height={48} className="h-12 w-auto object-contain" />
         </Link>
 
         {/* Desktop Nav */}
