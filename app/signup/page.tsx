@@ -278,7 +278,7 @@ export default function SignupPage() {
                   📧 <strong>We&apos;ve notified your employer</strong> (Company ID: <strong>{formData.companyId}</strong>) that you&apos;ve requested access. Once approved, you&apos;ll receive an email at <strong>{formData.email}</strong> with instructions to activate your account.
                 </p>
                 <p className="text-sm text-blue-800 leading-relaxed mt-3">
-                  ⏱ Approval typically takes <strong>1–2 business days</strong>. Questions? <a href="mailto:support@jkauto.com" className="underline">support@jkauto.com</a> or <a href="tel:+15054780022" className="underline">(505) 478-0022</a>
+                  ⏱ Approval typically takes <strong>1–2 business days</strong>. Questions? <a href="mailto:support@jkautoco.com" className="underline">support@jkautoco.com</a> or <a href="tel:+15054780022" className="underline">(505) 478-0022</a>
                 </p>
               </div>
               <Link href="/"

@@ -39,7 +39,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <span>📧</span>
-                <a href="mailto:support@jkauto.com" className="hover:text-white transition-colors">support@jkauto.com</a>
+                <a href="mailto:support@jkautoco.com" className="hover:text-white transition-colors">support@jkautoco.com</a>
               </li>
               <li className="flex items-start gap-2">
                 <span>📍</span>

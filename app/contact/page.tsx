@@ -257,7 +257,7 @@ export default function ContactPage() {
         <div className="max-w-3xl mx-auto">
           <div className="grid md:grid-cols-3 gap-6 text-center">
             {[
-              { icon: '📧', label: 'Email Us', value: 'support@jkauto.com', href: 'mailto:support@jkauto.com' },
+              { icon: '📧', label: 'Email Us', value: 'support@jkautoco.com', href: 'mailto:support@jkautoco.com' },
               { icon: '📞', label: 'Call Us', value: '(505) 478-0022', href: 'tel:+15054780022' },
               { icon: '🕐', label: 'Business Hours', value: 'Mon–Fri, 9am–6pm MST', href: null },
             ].map(item => (

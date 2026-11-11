@@ -20,7 +20,7 @@ export default function PrivacyPage() {
             Privacy Policy
           </div>
           <h1 className="text-5xl font-bold text-gray-900 tracking-tight mb-4">Privacy Policy</h1>
-          <p className="text-lg text-gray-500">Last Updated: October 29, 2026</p>
+          <p className="text-lg text-gray-500">Last Updated: November 10, 2026</p>
         </div>
       </section>
 
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introduction</h2>
               <p className="text-gray-600 leading-relaxed">
-                JKAuto (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our auto insurance consultancy platform and services at jkauto.com.
+                JKAuto (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our auto insurance consultancy platform and services at jkautoco.com.
               </p>
               <p className="text-gray-600 leading-relaxed mt-4">
                 We provide consultancy services related to car selection, auto insurance guidance, and vehicle maintenance planning. This policy describes how we handle the information you share with us in the course of receiving these services.
@@ -117,7 +117,7 @@ export default function PrivacyPage() {
                 <strong>No mobile information will be shared with or sold to third parties for marketing or promotional purposes.</strong>
               </p>
               <p className="text-gray-600 mt-4">
-                Message and data rates may apply. Message frequency varies based on account activity. To opt out of SMS notifications at any time, reply <strong>STOP</strong> to any message. For help, reply <strong>HELP</strong> or contact us at <a href="mailto:support@jkauto.com" className="text-blue-600 hover:underline">support@jkauto.com</a>.
+                Message and data rates may apply. Message frequency varies based on account activity. To opt out of SMS notifications at any time, reply <strong>STOP</strong> to any message. For help, reply <strong>HELP</strong> or contact us at <a href="mailto:support@jkautoco.com" className="text-blue-600 hover:underline">support@jkautoco.com</a>.
               </p>
             </div>
 
@@ -149,7 +149,7 @@ export default function PrivacyPage() {
                 <li><strong>Cookies:</strong> Manage cookie preferences through your browser settings</li>
               </ul>
               <p className="text-gray-600 mt-4">
-                To exercise these rights, contact us at <a href="mailto:support@jkauto.com" className="text-blue-600 hover:underline">support@jkauto.com</a>.
+                To exercise these rights, contact us at <a href="mailto:support@jkautoco.com" className="text-blue-600 hover:underline">support@jkautoco.com</a>.
               </p>
             </div>
 
@@ -185,7 +185,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Contact Us</h2>
               <div className="glass-card p-6">
                 <p className="text-gray-600 mb-2">If you have questions about this Privacy Policy or our data practices, please contact us:</p>
-                <p className="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:support@jkauto.com" className="text-blue-600 hover:underline">support@jkauto.com</a></p>
+                <p className="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:support@jkautoco.com" className="text-blue-600 hover:underline">support@jkautoco.com</a></p>
                 <p className="text-gray-600 mb-2"><strong>Phone:</strong> <a href="tel:+15054780022" className="text-blue-600 hover:underline">(505) 478-0022</a></p>
                 <p className="text-gray-600"><strong>Address:</strong> 1209 Mountain Rd PL NE, Ste N, Albuquerque, NM 87110</p>
               </div>

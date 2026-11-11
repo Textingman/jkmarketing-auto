@@ -58,7 +58,7 @@ export default function SmsPolicyPage() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Opt-Out</h2>
             <p className="text-gray-600 leading-relaxed">
-              You may opt out of SMS notifications at any time by replying <strong>STOP</strong> to any message you receive from us. After opting out, you will no longer receive SMS messages from JKAuto. To re-enable SMS notifications, contact us at <a href="mailto:support@jkauto.com" className="text-blue-600 hover:underline">support@jkauto.com</a>.
+              You may opt out of SMS notifications at any time by replying <strong>STOP</strong> to any message you receive from us. After opting out, you will no longer receive SMS messages from JKAuto. To re-enable SMS notifications, contact us at <a href="mailto:support@jkautoco.com" className="text-blue-600 hover:underline">support@jkautoco.com</a>.
             </p>
           </div>
 
@@ -68,7 +68,7 @@ export default function SmsPolicyPage() {
               For help with SMS messages, reply <strong>HELP</strong> to any message or contact us at:
             </p>
             <div className="glass-card p-6">
-              <p className="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:support@jkauto.com" className="text-blue-600 hover:underline">support@jkauto.com</a></p>
+              <p className="text-gray-600 mb-2"><strong>Email:</strong> <a href="mailto:support@jkautoco.com" className="text-blue-600 hover:underline">support@jkautoco.com</a></p>
               <p className="text-gray-600"><strong>Phone:</strong> <a href="tel:+15054780022" className="text-blue-600 hover:underline">(505) 478-0022</a></p>
             </div>
           </div>
