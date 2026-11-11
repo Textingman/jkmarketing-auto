@@ -83,7 +83,7 @@ function VerifyPageContent() {
           </div>
           
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 px-2">
-            Validate your number.
+            Confirm your number.
           </h2>
           
           {/* Phone Input Field */}
@@ -117,7 +117,7 @@ function VerifyPageContent() {
                 Redirecting...
               </span>
             ) : (
-              <span className="block sm:inline">Verify Number</span>
+              <span className="block sm:inline">Continue</span>
             )}
           </button>
         </div>
